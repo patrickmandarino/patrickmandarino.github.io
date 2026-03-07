@@ -1,0 +1,456 @@
+/*
+  Patrick Mandarino — Personal Site
+  --------------------------------
+  Small, namespaced enhancements on top of SLDS.
+
+  Layout strategy:
+  - Mobile-first single column by default (works even if JavaScript fails).
+  - JavaScript progressively enhances the cards into deterministic 2- and 3-column
+    stacks on larger screens so spacing stays consistent and cards do not inherit
+    awkward row heights from their neighbors.
+*/
+
+:root {
+  --pm-color-brand: #0176d3;
+  --pm-color-success: #2e844a;
+  --pm-color-warning: #fe9339;
+  --pm-color-purple: #9050e9;
+  --pm-color-neutral: #5c5c5c;
+
+  --pm-tint-brand: rgba(1, 118, 211, 0.1);
+  --pm-tint-success: rgba(46, 132, 74, 0.12);
+  --pm-tint-warning: rgba(254, 147, 57, 0.16);
+  --pm-tint-purple: rgba(144, 80, 233, 0.12);
+  --pm-tint-neutral: rgba(92, 92, 92, 0.1);
+
+  --pm-card-gap: 1rem;
+  --pm-pill-gap: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   Page frame / layout
+   ========================= */
+
+.pm-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-container {
+  width: min(100%, 96rem);
+  margin: 0 auto;
+  min-height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-page-footer {
+  margin-top: auto;
+  padding-top: calc(var(--pm-card-gap) * 2);
+}
+
+.pm-skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 10;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.pm-header {
+  backdrop-filter: blur(2px);
+}
+
+.pm-header__title {
+  line-height: 1.1;
+  margin-bottom: 0.125rem;
+}
+
+.pm-header__tagline {
+  margin-top: 0.15rem;
+}
+
+.pm-external-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 47.99em) {
+  .pm-external-links {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   Main card layout
+   ========================= */
+
+.pm-card-layout {
+  width: 100%;
+}
+
+.pm-card-flow,
+.pm-card-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pm-card-gap);
+  align-content: start;
+  min-width: 0;
+}
+
+.pm-card-columns {
+  display: grid;
+  gap: var(--pm-card-gap);
+  align-items: start;
+}
+
+/* Default / no-JS-safe layout */
+body[data-pm-layout="single-column"] .pm-card-flow {
+  display: flex;
+}
+
+body[data-pm-layout="single-column"] .pm-card-columns {
+  display: none;
+}
+
+/* JS-enhanced larger layouts */
+body[data-pm-layout="two-column"] .pm-card-flow,
+body[data-pm-layout="three-column"] .pm-card-flow {
+  display: none;
+}
+
+body[data-pm-layout="two-column"] .pm-card-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.28fr);
+}
+
+body[data-pm-layout="three-column"] .pm-card-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr) minmax(0, 1.16fr);
+}
+
+body[data-pm-layout="two-column"] .pm-card-column--3 {
+  display: none;
+}
+
+body[data-pm-layout="three-column"] .pm-card-column--3 {
+  display: grid;
+}
+
+/* =========================
+   Cards
+   ========================= */
+
+.pm-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: auto;
+  margin: 0 !important;
+}
+
+.pm-card-layout .pm-card,
+.pm-card-layout .slds-card.pm-card {
+  /* Card spacing is owned by the stack containers above. */
+  margin: 0 !important;
+}
+
+.pm-card-flow>.pm-card,
+.pm-card-column>.pm-card {
+  margin: 0 !important;
+}
+
+.pm-card .slds-card__header,
+.pm-card .slds-card__body,
+.pm-card .slds-card__footer,
+.pm-card .slds-media__body {
+  min-width: 0;
+}
+
+.pm-card .slds-card__body {
+  flex: 1 1 auto;
+}
+
+.pm-card .slds-card__footer {
+  margin-top: auto;
+}
+
+.pm-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: var(--pm-accent, var(--pm-color-brand));
+}
+
+.pm-card[data-accent="brand"] {
+  --pm-accent: var(--pm-color-brand);
+}
+
+.pm-card[data-accent="success"] {
+  --pm-accent: var(--pm-color-success);
+}
+
+.pm-card[data-accent="warning"] {
+  --pm-accent: var(--pm-color-warning);
+}
+
+.pm-card[data-accent="purple"] {
+  --pm-accent: var(--pm-color-purple);
+}
+
+.pm-card[data-accent="neutral"] {
+  --pm-accent: var(--pm-color-neutral);
+}
+
+.pm-icon-circle {
+  background: var(--pm-accent, var(--pm-color-brand));
+  color: #fff;
+}
+
+.pm-card__icon {
+  flex: 0 0 auto;
+}
+
+/* =========================
+   Experience section
+   ========================= */
+
+.pm-job .slds-media__body {
+  min-width: 0;
+}
+
+.pm-job__header {
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.pm-job__title {
+  flex: 1 1 14rem;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.pm-job__date {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.pm-company-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 4.75rem;
+  min-width: 4.75rem;
+  height: 1.6rem;
+}
+
+.pm-company-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 1.45rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.pm-company-logo--inmar {
+  max-width: 4.5rem;
+  max-height: 1.25rem;
+}
+
+.pm-company-logo--thinklp {
+  max-width: 3.6rem;
+  max-height: 1.45rem;
+}
+
+@media (max-width: 30em) {
+  .pm-company-logo-wrap {
+    width: 4.25rem;
+    min-width: 4.25rem;
+  }
+
+  .pm-job__date {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* =========================
+   Skill pills
+   ========================= */
+
+.pm-skill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pm-pill-gap);
+  margin: 0.5rem 0 1rem 0 !important;
+}
+
+.pm-skill-group:last-child {
+  margin-bottom: 0 !important;
+}
+
+.pm-skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.2;
+  margin: 0 !important;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pm-skill__icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--pm-skill-color, var(--pm-color-neutral));
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.pm-skill--sf {
+  --pm-skill-color: var(--pm-color-brand);
+  background: var(--pm-tint-brand);
+}
+
+.pm-skill--product {
+  --pm-skill-color: var(--pm-color-success);
+  background: var(--pm-tint-success);
+}
+
+.pm-skill--web {
+  --pm-skill-color: var(--pm-color-warning);
+  background: var(--pm-tint-warning);
+}
+
+.pm-skill--tools {
+  --pm-skill-color: var(--pm-color-purple);
+  background: var(--pm-tint-purple);
+}
+
+.pm-skill--other {
+  --pm-skill-color: var(--pm-color-neutral);
+  background: var(--pm-tint-neutral);
+}
+
+#skills .slds-text-title_caps+.pm-skill-group {
+  margin-top: 0.5rem !important;
+}
+
+#skills .pm-skill-group+.slds-text-title_caps {
+  margin-top: 1.1rem;
+}
+
+/* =========================
+   Certification / Trailhead
+   ========================= */
+
+.pm-badge-layout,
+.pm-trailhead-layout {
+  display: grid;
+  grid-template-columns: minmax(92px, 116px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.pm-badge-media,
+.pm-trailhead-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.pm-badge-copy,
+.pm-trailhead-copy {
+  min-width: 0;
+}
+
+.pm-cert-badge {
+  width: 100%;
+  max-width: 116px;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.pm-trailhead-badge {
+  width: 100%;
+  max-width: 92px;
+  height: auto;
+  display: block;
+}
+
+.pm-trailhead-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+}
+
+.pm-trailhead-stat {
+  min-width: 0;
+}
+
+.pm-trailhead-stat .slds-text-heading_medium {
+  line-height: 1.1;
+  margin-bottom: 0.1rem;
+}
+
+@media (max-width: 25em) {
+
+  .pm-badge-layout,
+  .pm-trailhead-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .pm-badge-media,
+  .pm-trailhead-rank {
+    align-items: center;
+    text-align: center;
+  }
+
+  .pm-badge-copy,
+  .pm-trailhead-copy {
+    width: 100%;
+  }
+}
+
+/* =========================
+   Small usability tweaks
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}

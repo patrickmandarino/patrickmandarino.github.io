@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Patrick Mandarino | Salesforce Developer</title>
+  <meta content="Patrick Mandarino — Salesforce Developer. Apex, Lightning Web Components, Flows." name="description" />
+  <!--
+    Salesforce Lightning Design System (SLDS)
+    ----------------------------------------
+    For GitHub Pages, the simplest approach is to load SLDS from a CDN.
+
+    If you want a fully-offline site later, you can vendor SLDS locally and
+    update this <link>.
+  -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/@salesforce-ux/design-system@2.29.0/assets/styles/salesforce-lightning-design-system.min.css"
+    rel="stylesheet" />
+  <!-- Site-specific styles (small, namespaced overrides). -->
+  <link href="assets/css/site.css" rel="stylesheet" />
+  <!--
+    Progressive enhancement
+    - Loads SLDS SVG sprites in a GitHub Pages-friendly way (see assets/js/site.js)
+  -->
+  <script defer="" src="assets/js/site.js"></script>
+</head>
+<!--
+  IMPORTANT
+  Wrap the page in .slds-scope so SLDS styles apply correctly outside Salesforce.
+-->
+
+<body class="slds-scope" data-pm-layout="single-column">
+  <a class="slds-assistive-text slds-assistive-text_focus pm-skip-link" href="#main">
+    Skip to main content
+  </a>
+  <div class="slds-brand-band slds-brand-band_cover slds-brand-band_medium pm-page">
+    <div class="pm-container slds-p-around_medium slds-p-bottom_x-large">
+      <!-- =====================
+           Header / Summary
+           ===================== -->
+      <header aria-label="Page header" class="slds-card pm-header">
+        <div class="slds-card__body slds-card__body_inner">
+          <div class="slds-grid slds-wrap slds-grid_align-spread slds-grid_vertical-align-center">
+            <!-- Left: headshot + name + tagline -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+              <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                  <!--
+                    SLDS avatar (circle)
+                    Tip: replace assets/img/headshot.jpg if you update your headshot.
+                  -->
+                  <span class="slds-avatar slds-avatar_large slds-avatar_circle" title="Patrick Mandarino">
+                    <img alt="Headshot of Patrick Mandarino" src="assets/img/headshot.jpg" />
+                  </span>
+                </div>
+                <div class="slds-media__body">
+                  <h1 class="slds-text-heading_large pm-header__title">Patrick Mandarino</h1>
+                  <p class="slds-text-body_small slds-text-color_weak pm-header__tagline">
+                    Salesforce Developer  •  Apex  •  Lightning Web Components  •  Flows
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Right: external links -->
+            <div
+              class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 slds-text-align_right slds-m-top_small slds-large-m-top_none">
+              <div aria-label="External links" class="slds-button-group pm-external-links" role="group">
+                <a class="slds-button slds-button_neutral" href="https://www.linkedin.com/in/patrick-mandarino"
+                  rel="noopener noreferrer" target="_blank">
+                  LinkedIn
+                </a><a class="slds-button slds-button_neutral" href="https://github.com/patrickmandarino"
+                  rel="noopener noreferrer" target="_blank">GitHub</a>
+                <a class="slds-button slds-button_neutral"
+                  href="https://www.salesforce.com/trailblazer/patrick-mandarino" rel="noopener noreferrer"
+                  target="_blank">
+                  Trailblazer
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- =====================
+           Main content
+           ===================== -->
+      <main class="slds-m-top_large pm-main" id="main" tabindex="-1">
+        <!--
+          Responsive card grid
+          - 1 column on mobile
+          - 2 columns on medium screens
+          - 3 columns on large screens
+
+          Custom CSS Grid keeps the spacing consistent
+          while preserving SLDS card styling.
+        -->
+        <div class="pm-card-layout" id="pm-card-layout">
+          <div class="pm-card-flow" id="pm-card-flow">
+            <section aria-label="About" class="slds-card pm-card pm-card-grid__item" data-accent="brand" id="about">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="About">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-user" xlink:href="#utility-user"></use>
+                      </svg>
+                      <span class="slds-assistive-text">About</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="About">About</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <p class="slds-text-body_regular">
+                  Salesforce Developer with professional experience building custom business logic on the Salesforce
+                  platform
+                  using Apex, Lightning Web Components, Flows, and REST-based integrations.
+                </p>
+                <ul class="slds-list_dotted slds-m-top_small">
+                  <li>Platform engineering with a mix of programmatic and declarative tools.</li>
+                  <li>Hands-on collaboration with QA/support and cross-functional teams.</li>
+                  <li>Comfortable shipping in Agile/Scrum environments.</li>
+                </ul>
+              </div>
+            </section>
+            <section aria-label="Work Experience" class="slds-card pm-card pm-card-grid__item" data-accent="purple"
+              id="experience">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="Work Experience">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-offline_briefcase" xlink:href="#utility-offline_briefcase"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Work Experience</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="Work Experience">Work Experience</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <!-- Job 1 -->
+                <div class="pm-job">
+                  <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure"><span class="pm-company-logo-wrap pm-company-logo-wrap--inmar"><img
+                          alt="Inmar Intelligence logo" class="pm-company-logo pm-company-logo--inmar" loading="lazy"
+                          src="assets/img/inmar-logo.png" /></span></div>
+                    <div class="slds-media__body">
+                      <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center pm-job__header">
+                        <h3 class="slds-text-heading_small pm-job__title"
+                          title="Salesforce Developer — Inmar Intelligence">
+                          Salesforce Developer — Inmar Intelligence
+                        </h3>
+                        <span class="slds-text-body_small slds-text-color_weak pm-job__date">Jul 2024 – Present</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="slds-list_dotted slds-m-top_x-small">
+                    <li>Architect and implement custom business logic using Apex, LWC, and Flows.</li>
+                    <li>Contribute to user stories with technical feedback to maximize business value.</li>
+                    <li>Support QA to ensure solutions meet quality standards and behave as intended.</li>
+                    <li>Partner with Support to diagnose complex issues and assist users as needed.</li>
+                    <li>Participate in Agile ceremonies (standups, planning, retrospectives).</li>
+                  </ul>
+                </div>
+                <div class="slds-border_top slds-m-vertical_medium"></div>
+                <!-- Job 2 -->
+                <div class="pm-job">
+                  <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure"><span
+                        class="pm-company-logo-wrap pm-company-logo-wrap--thinklp"><img alt="ThinkLP logo"
+                          class="pm-company-logo pm-company-logo--thinklp" loading="lazy"
+                          src="assets/img/thinklp-logo.png" /></span></div>
+                    <div class="slds-media__body">
+                      <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center pm-job__header">
+                        <h3 class="slds-text-heading_small pm-job__title" title="Salesforce Developer — ThinkLP">
+                          Salesforce Developer — ThinkLP
+                        </h3>
+                        <span class="slds-text-body_small slds-text-color_weak pm-job__date">Nov 2021 – May 2024</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="slds-list_dotted slds-m-top_x-small">
+                    <li>Designed, built, and tested features using Lightning (LWC/Aura), Apex, and Visualforce.</li>
+                    <li>Worked with Customer Experience to analyze requirements and architect integrations.</li>
+                    <li>Assisted Support diagnosing bugs and configuration issues.</li>
+                    <li>Participated in Scrum ceremonies and regular code reviews to maintain quality.</li>
+                  </ul>
+                </div>
+              </div>
+              <footer class="slds-card__footer">
+                <span class="slds-text-body_small slds-text-color_weak">
+                  More detail is available on LinkedIn.
+                </span>
+              </footer>
+            </section>
+            <section aria-label="Skills" class="slds-card pm-card pm-card-grid__item" data-accent="warning" id="skills">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="Skills">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-settings" xlink:href="#utility-settings"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Skills</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="Skills">Skills</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <!-- Salesforce Technologies -->
+                <h3 class="slds-text-title_caps">Salesforce Technologies</h3>
+                <div class="pm-skill-group">
+                  <span class="slds-badge pm-skill pm-skill--sf">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-lightning_extension" xlink:href="#utility-lightning_extension"></use>
+                    </svg>
+                    Lightning Web Components
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--sf">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-apex" xlink:href="#utility-apex"></use>
+                    </svg>
+                    Apex
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--sf">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-automate" xlink:href="#utility-automate"></use>
+                    </svg>
+                    Triggers
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--sf">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-search" xlink:href="#utility-search"></use>
+                    </svg>
+                    SOQL
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--sf">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-flow" xlink:href="#utility-flow"></use>
+                    </svg>
+                    Flows
+                  </span>
+                </div>
+                <!-- Salesforce Products -->
+                <h3 class="slds-text-title_caps">Salesforce Products</h3>
+                <div class="pm-skill-group">
+                  <span class="slds-badge pm-skill pm-skill--product">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#standard-opportunity" xlink:href="#standard-opportunity"></use>
+                    </svg>
+                    Sales Cloud
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--product">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#standard-case" xlink:href="#standard-case"></use>
+                    </svg>
+                    Service Cloud
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--product">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#standard-portal" xlink:href="#standard-portal"></use>
+                    </svg>
+                    Experience Cloud
+                  </span>
+                </div>
+                <!-- Web Technologies -->
+                <h3 class="slds-text-title_caps">Web Technologies</h3>
+                <div class="pm-skill-group">
+                  <span class="slds-badge pm-skill pm-skill--web">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#standard-javascript_button" xlink:href="#standard-javascript_button"></use>
+                    </svg>
+                    JavaScript
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--web">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#doctype-html" xlink:href="#doctype-html"></use>
+                    </svg>
+                    HTML
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--web">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-color_swatch" xlink:href="#utility-color_swatch"></use>
+                    </svg>
+                    CSS
+                  </span>
+                </div>
+                <!-- Tools -->
+                <h3 class="slds-text-title_caps">Tools</h3>
+                <div class="pm-skill-group">
+                  <span class="slds-badge pm-skill pm-skill--tools">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#standard-branch_merge" xlink:href="#standard-branch_merge"></use>
+                    </svg>
+                    Git
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--tools">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-kanban" xlink:href="#utility-kanban"></use>
+                    </svg>
+                    Jira
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--tools">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-setup" xlink:href="#utility-setup"></use>
+                    </svg>
+                    Salesforce CLI
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--tools">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-package" xlink:href="#utility-package"></use>
+                    </svg>
+                    Prodly
+                  </span>
+                </div>
+                <!-- Other -->
+                <h3 class="slds-text-title_caps">Other</h3>
+                <div class="pm-skill-group">
+                  <span class="slds-badge pm-skill pm-skill--other">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-world" xlink:href="#utility-world"></use>
+                    </svg>
+                    REST APIs
+                  </span>
+                  <span class="slds-badge pm-skill pm-skill--other">
+                    <svg aria-hidden="true" class="slds-icon pm-skill__icon">
+                      <use href="#utility-loop" xlink:href="#utility-loop"></use>
+                    </svg>
+                    Agile/Scrum
+                  </span>
+                </div>
+              </div>
+            </section>
+            <section aria-label="Certifications" class="slds-card pm-card pm-card-grid__item" data-accent="success"
+              id="certifications">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="Certifications">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-ribbon" xlink:href="#utility-ribbon"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Certifications</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="Certifications">Certifications</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <div class="pm-badge-layout">
+                  <div class="pm-badge-media"><img alt="Salesforce Certified Platform Developer badge"
+                      class="pm-cert-badge" loading="lazy" src="assets/img/platform-developer.png" /></div>
+                  <div class="pm-badge-copy">
+                    <p class="slds-text-heading_small">Salesforce Certified Platform Developer</p>
+                    <p class="slds-text-body_small slds-text-color_weak">Issued by Salesforce • 2025</p>
+                    <p class="slds-text-body_small slds-m-top_x-small">
+                      <a class="slds-text-link" href="https://trailhead.salesforce.com/credentials/platformdeveloperi"
+                        rel="noopener noreferrer" target="_blank">
+                        View credential details
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section aria-label="Trailhead" class="slds-card pm-card pm-card-grid__item" data-accent="brand"
+              id="trailhead">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="Trailhead">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-trailhead_alt" xlink:href="#utility-trailhead_alt"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Trailhead</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="Trailhead">Trailhead</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <div class="pm-trailhead-layout">
+                  <div class="pm-trailhead-rank"><img alt="Trailhead rank: Four Star Ranger" class="pm-trailhead-badge"
+                      loading="lazy" src="assets/img/four-star-ranger.png" />
+                    <p class="slds-text-body_small slds-text-color_weak slds-m-top_x-small">Four Star Ranger</p>
+                  </div>
+                  <div class="pm-trailhead-copy">
+                    <div class="pm-trailhead-stats">
+                      <div class="pm-trailhead-stat">
+                        <div class="slds-text-heading_medium">400+</div>
+                        <div class="slds-text-body_small slds-text-color_weak">Badges</div>
+                      </div>
+                      <div class="pm-trailhead-stat">
+                        <div class="slds-text-heading_medium">280k+</div>
+                        <div class="slds-text-body_small slds-text-color_weak">Points</div>
+                      </div>
+                      <div class="pm-trailhead-stat">
+                        <div class="slds-text-heading_medium">50+</div>
+                        <div class="slds-text-body_small slds-text-color_weak">Trails</div>
+                      </div>
+                      <div class="pm-trailhead-stat">
+                        <div class="slds-text-heading_medium">20+</div>
+                        <div class="slds-text-body_small slds-text-color_weak">Superbadges</div>
+                      </div>
+                    </div>
+                    <p class="slds-text-body_small slds-m-top_medium"><a class="slds-text-link"
+                        href="https://www.salesforce.com/trailblazer/patrick-mandarino" rel="noopener noreferrer"
+                        target="_blank">
+                        View my Trailblazer profile
+                      </a></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section aria-label="Education" class="slds-card pm-card pm-card-grid__item" data-accent="neutral"
+              id="education">
+              <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon_container_circle pm-icon-circle" title="Education">
+                      <svg aria-hidden="true" class="slds-icon slds-icon_small pm-card__icon">
+                        <use href="#utility-education" xlink:href="#utility-education"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Education</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                      <span class="slds-truncate" title="Education">Education</span>
+                    </h2>
+                  </div>
+                </div>
+              </header>
+              <div class="slds-card__body slds-card__body_inner">
+                <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                  <h3 class="slds-text-heading_small slds-truncate" title="Wilfrid Laurier University">Wilfrid Laurier
+                    University</h3>
+                  <span class="slds-text-body_small slds-text-color_weak">Jun 2021</span>
+                </div>
+                <p class="slds-text-body_regular">Honours Bachelor of Science, Computer Science</p>
+                <ul class="slds-list_dotted slds-m-top_x-small">
+                  <li>GPA: 3.9/4.0; Graduated with High Distinction</li>
+                  <li>Awarded Dean’s Honour Roll for two consecutive academic years (2019 – 2021)</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+          <div class="pm-card-columns" hidden="" id="pm-card-columns">
+            <div class="pm-card-column pm-card-column--1" data-pm-column="1"></div>
+            <div class="pm-card-column pm-card-column--2" data-pm-column="2"></div>
+            <div class="pm-card-column pm-card-column--3" data-pm-column="3"></div>
+          </div>
+        </div>
+        <footer
+          class="slds-m-top_x-large slds-text-align_center slds-text-body_small slds-text-color_weak pm-page-footer">
+          © <span id="pm-current-year">2026</span> Patrick Mandarino. Built with SLDS for a Lightning-style UI. Hosted
+          on GitHub Pages.
+        </footer>
+      </main>
+    </div>
+  </div>
+  <!--
+    Hidden SVG sprite container
+    ---------------------------
+    SLDS icons are shipped as *spritemaps* (symbols.svg). Modern browsers often block
+    cross-origin <use href="https://...#icon"> for security reasons.
+
+    Solution: we fetch the spritemaps at runtime and inline the <symbol> elements
+    into this SVG. Then all icons can reference local IDs like "#utility-user".
+
+    NOTE: This SVG must NOT be display:none, or some browsers won't resolve <use>.
+  -->
+  <svg aria-hidden="true" focusable="false" id="pm-slds-sprite"
+    style="position: absolute; width: 0; height: 0; overflow: hidden;"></svg>
+</body>
+
+</html>
